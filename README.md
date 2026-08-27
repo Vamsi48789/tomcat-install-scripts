@@ -1,5 +1,6 @@
 # tomcat-install-scripts
 # Installation scripts for tomcat to deploy java application
+# reference : https://dlcdn.apache.org/tomcat/
 yum install java-21-amazon-corretto -y
 wget https://dlcdn.apache.org/tomcat/tomcat-9/v10.1.59/bin/apache-tomcat-10.1.59.tar.gz
 tar -zxvf apache-tomcat-10.1.59.tar.gz
