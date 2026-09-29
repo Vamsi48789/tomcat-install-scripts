@@ -1,0 +1,31 @@
+This is the manual process
+
+yum install java-21-amazon-corretto -y
+
+## https://dlcdn.apache.org/ --> check the version in dlcdn web
+  
+  wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.122/bin/apache-tomcat-9.0.122.tar.gz
+  tar -zxvf apache-tomcat-9.0.122.tar.gz
+
+## go to bin folder /root/apache-tomcat-9.0.122/bin and start the tomcat server and try to access with publicip:8080
+    ./startup.sh
+    
+## go to manager's context.xml 
+    find . -name context.xml
+## go to line number 21 and delete 2 lines
+    :21  or 21gg 
+## go to /root/apache-tomcat-9.0.122/conf --> tomcat-users.xml
+## go to last line 
+  G
+## copy first 3 lines in below code and paste at last which turn uncomment them and do as same as follows below
+<!--
+  <role rolename="tomcat"/>
+  <role rolename="role1"/>
+  <user username="tomcat" password="<must-be-changed>" roles="tomcat"/>
+  <user username="both" password="<must-be-changed>" roles="tomcat,role1"/>
+  <user username="role1" password="<must-be-changed>" roles="role1"/>
+-->
+  <role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <user username="tomcat" password="Naidu@4424" roles="manager-gui, manager-script"/>
+</tomcat-users>
